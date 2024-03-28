@@ -6,7 +6,7 @@ const HomePage = () => {
         <div className='w-[95%] h-[80%] flex justify-center items-center'> 
             <div className='flex justify-between w-full h-full items-center'>
                 <div className=' w-[50%] h-full flex justify-start items-center'>
-                    <div className='h-full w-full flex flex-col gap-[1rem] mt-[30px]'>
+                    <div className='h-full w-full flex flex-col gap-[1rem] mt-[250px]'>
                         <div className='h-[27%] w-full flex justify-start items-center text-[4rem]'>
                             BOOBS OF BITCOIN                        
                         </div>
