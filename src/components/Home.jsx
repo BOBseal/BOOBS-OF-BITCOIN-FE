@@ -7,14 +7,16 @@ const HomePage = () => {
             <div className='flex justify-between w-full h-full items-center'>
                 <div className=' w-[50%] h-full flex justify-start items-center'>
                     <div className='h-full w-full flex flex-col gap-[1rem] mt-[250px]'>
-                        <div className='h-[27%] w-full flex justify-start items-center text-[4rem]'>
+                        <div className='h-[27%] w-full flex justify-start font-bold items-center text-[4rem] drop-shadow-lg'>
                             BOOBS OF BITCOIN                        
                         </div>
 
-                        <div className='h-[73%]'>
+                        <div className='h-[73%] flex w-[90%] drop-shadow-md'>
                             is a PFP Collection of 10k Generative BOOBs.
                             It is the Exclusive PFP Edition of BOB Market that acts as a way Governance of the platform and 
-                            a Badge for Hardcore BOOBS Lovers and BOB Market Supporters to keep. It will employ a Hybrid Governance Structure where BOB Collection Holders and Future Token holders vote to make decisions in the Ecosystem.
+                            a Badge for Hardcore BOOBS Lovers and BOB Market Supporters to keep. 
+                            It will employ a Hybrid Governance Structure where BOB Collection Holders and
+                             Future Token holders vote to make decisions in the Ecosystem.
                         </div>
                     </div>
                 </div>
