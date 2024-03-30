@@ -3,8 +3,8 @@ import Image from '../../node_modules/next/image'
 
 const HomePage = () => {
   return (
-    <div className='flex w-screen h-[800px] bg-gradient-to-t justify-center items-center from-[#F6960C] border-[1px] to-[#DD4423]'>
-        <div className='w-[100%] md:w-[95%] lg:w-[75%] h-[80%] flex justify-center items-center'> 
+    <div className='flex w-screen h-full pt-[4rem] pb-[4rem] md:pb-0 md:pt-0 md:h-[800px] bg-gradient-to-t justify-center items-center from-[#F6960C] border-[1px] to-[#DD4423]'>
+        <div className='w-[95%] md:w-[95%] lg:w-[75%] h-[80%] flex justify-center items-center'> 
             <div className='flex flex-col md:flex-row justify-between w-full h-full items-center'>
                 <div className=' w-[90%] md:w-[50%] h-full flex justify-start items-center'>
                     
@@ -13,8 +13,8 @@ const HomePage = () => {
                         <div className='md:hidden w-full md:w-[50%] h-full flex justify-center items-center'>
                             <div className='md:h-[463px] flex md:w-[342px] gap-[2rem] lg:w-[492px]'>
                             <div className='flex rounded-lg z-20'>
-                                <div className='w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[10px] ml-[8px] bg-black absolute -z-10'/>
-                            <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
+                                <div className='w-[250px] h-[250px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[10px] ml-[8px] bg-black absolute -z-10'/>
+                            <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[250px] h-[250px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
                             </div>
                             {/*<div className='md:w-[50%] md:gap-[1rem] justify-center items-center md:h-full flex flex-col'>
                                 <Image width={130} height={80} src="/images/6.png" className='mr-[180px] -mt-[100px]'/>
@@ -28,8 +28,8 @@ const HomePage = () => {
                         </div>
                         </div>
 
-                        <div className='gap-[4rem] flex h-full w-full flex-col'>
-                            <div className='h-[27%] w-full flex justify-start font-bold items-center text-[2.8rem] md:text-[4rem] drop-shadow-lg'>
+                        <div className='gap-[4rem] flex h-full w-[95%] ml-[5px] md:ml-0 flex-col'>
+                            <div className='h-[27%] w-full flex justify-center md:justify-start font-bold items-center text-[2.8rem] md:text-[4rem] drop-shadow-lg'>
                                 BOOBS OF BITCOIN                        
                             </div>
 
