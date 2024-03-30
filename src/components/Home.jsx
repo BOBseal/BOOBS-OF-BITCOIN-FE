@@ -31,15 +31,15 @@ const HomePage = () => {
                 </div>
 
                 <div className=' w-[50%] h-full hidden md:flex justify-center items-center'>
-                    <div className='md:h-[463px] flex md:w-[392px] gap-[2rem] lg:w-[592px]'>
+                    <div className='md:h-[463px] flex md:w-[342px] gap-[2rem] lg:w-[492px]'>
                         <div className='md:w-[50%] md:gap-[3rem] justify-center items-center md:h-full flex flex-col'>
-                            <Image width={130} height={80} src="/next.svg" className='mr-[80px] mt-[120px]'/>
+                            <Image width={130} height={80} src="/next.svg" className='mr-[80px] mt-[150px]'/>
                             <Image width={130} height={80} src="/next.svg" className='ml-[80px]'/>
                             <Image width={130} height={80} src="/next.svg" className='mr-[80px]'/>
                             <Image width={130} height={80} src="/next.svg" className='ml-[80px]'/>
                         </div>
                         <div className='md:h-full flex md:gap-[3rem] flex-col md:w-[50%] justify-center items-center'>
-                            <Image width={130} height={80} src="/next.svg" className='mr-[80px] -mt-[120px]'/>
+                            <Image width={130} height={80} src="/next.svg" className='mr-[80px] -mt-[150px]'/>
                             <Image width={130} height={80} src="/next.svg" className='ml-[80px]'/>
                             <Image width={130} height={80} src="/next.svg" className='mr-[80px]'/>
                             <Image width={130} height={80} src="/next.svg" className='ml-[80px]'/>
