@@ -16,7 +16,7 @@ const HomePage = () => {
 
                         <div className='gap-[4rem] flex h-full w-full flex-col'>
                             <div className='h-[27%] w-full flex justify-start font-bold items-center text-[2.8rem] md:text-[4rem] drop-shadow-lg'>
-                                BOB OF BITCOIN                        
+                                BOOBS OF BITCOIN                        
                             </div>
 
                             <div className='h-[73%] flex w-full md:w-[90%] drop-shadow-md'>
