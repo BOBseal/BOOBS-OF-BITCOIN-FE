@@ -15,7 +15,7 @@ const Header = () => {
 
             <div className='flex justify-center w-[25%]'>
                 
-                <div className='bg-[#F6B40C] h-[50px] mt-[10px] w-[180px] drop-shadow-lg border-[1.5px] flex justify-center items-center rounded-[3px]'>
+                <div className='bg-[#F6B40C] h-[50px] mt-[10px] w-[180px] drop-shadow-lg border-[1.5px] flex justify-center items-center rounded-[12px]'>
                     Connect Wallet
                 </div>
                 
