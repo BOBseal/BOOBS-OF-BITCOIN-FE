@@ -1,11 +1,33 @@
-'use client'
 import React from 'react'
-//import ScrollArrow from '../utils/ScrollArrow'
 
 const Showcase = () => {
   return (
-    <div className='flex border-[1px] w-full h-[800px] bg-gradient-to-t from-[#F6960C] to-[#DD4423]'>
-       
+    <div className='flex justify-center flex-col border-[1px] w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gradient-to-t from-[#111037] to-[#8C1D52]'>
+        <div className='flex justify-center md:justify-between items-center h-[80%]'>
+          <div className='hidden md:flex'>
+            L Arrow
+          </div>
+
+          <div className='flex justify-between w-[75%] items-center gap-3'>
+              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center justify-center'>
+                1
+              </div>
+
+              <div className='border border-black rounded-2xl h-[282px] w-[282px] lg:h-[410px] lg:w-[410px] items-center justify-center'>
+                2
+              </div>
+
+              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center justify-center'>
+                3
+              </div>
+          </div>
+  
+          <div className='hidden md:flex'>
+            R Arrow
+          </div>  
+        </div>
+        
+        <div className='flex justify-center'>...</div>
     </div>
   )
 }

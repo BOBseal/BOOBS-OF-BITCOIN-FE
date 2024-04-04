@@ -8,8 +8,10 @@ export default function Home() {
   return(
     <div className="w-full h-full text-white">
       <HomePage/>
-      <About/>
+      
       <Showcase/>
+
+      <About/>
       
     </div>
   )

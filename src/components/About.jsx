@@ -1,9 +1,11 @@
+'use client'
 import React from 'react'
+//import ScrollArrow from '../utils/ScrollArrow'
 
 const About = () => {
   return (
-    <div className='flex border-[1px] w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gradient-to-t from-[#111037] to-[#8C1D52]'>
-
+    <div className='flex border-[1px] w-full h-[800px] bg-gradient-to-t from-[#F6960C] to-[#DD4423]'>
+       
     </div>
   )
 }
