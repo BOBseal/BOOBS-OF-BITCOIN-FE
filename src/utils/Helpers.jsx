@@ -1,5 +1,5 @@
+import React from "react";
 import { ethers } from "ethers";
-
 
 export const changeNetwork =async(chainId)=>{
     try {
@@ -39,11 +39,10 @@ export const connectContract =async(address, abi, account)=>{
 export const connectMetamask = async()=>{
     try {
         if(window.ethereum){
-            const chainId = await window.ethereum.request({ method: "eth_chainId" });
             const array = await window.ethereum.request({
                 method: "eth_requestAccounts",
             });
-            let object = {chainId: chainId , accounts: array};
+            let object = {wallet:array[0], accounts: array};
             return object;
         } else return null       
     } catch (error) {

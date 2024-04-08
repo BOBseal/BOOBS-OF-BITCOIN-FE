@@ -3,16 +3,17 @@
 import React,{useState,useEffect} from "react"
 import {
     addNetwork,
-    changeNNetwork,
+    changeNetwork,
     connectContract,
     convertTime,
     connectMetamask,
     getChainId
-} from "../utils/helpers.jsx"
+} from "../utils/Helpers.jsx"
 
 import { sepolia } from "../utils/networkConfigs.jsx";
 import { hexToNumber , hexToString, numberToHex, stringToHex } from 'viem';
-import ethers from "ethers"
+
+import { ethers } from "../../node_modules/ethers/lib/index.js";
 import {
     NFTAddress,
     NFTAbi,
@@ -42,7 +43,7 @@ export const AppProvider = ({children})=>{
                 
                 const chainId = getChainId();
                 if(chainId != sepolia[0].chainId){
-                    changeNNetwork(sepolia[0].chainId);
+                    changeNetwork(sepolia[0].chainId);
                 }
                 setUser({wallet: wallet , array: array});
                 return wallet;
@@ -77,6 +78,7 @@ export const AppProvider = ({children})=>{
                     const price = await contract.getCurrentPrice();
                     const ineth = ethers.utils.formatEther(price);
                     setMintContractData({...mintContractData, mintPrice :ineth})
+                    console.log(ineth)
                     return ineth;                    
                 }
             } else return null       
@@ -97,13 +99,22 @@ export const AppProvider = ({children})=>{
                     const currRndMints = hexToNumber(currentRoundMints);
                     const inNum = hexToNumber(round);
                     setMintContractData({...mintContractData, currentRound: inNum, currentRoundMints: currRndMints})
-                    return inNum;                    
+                    
+                    console.log(mintContractData)                 
+                    return inNum;   
                 }
             } else return null
         } catch (error) {
             console.log(error)
         }
     }
+
+    useEffect(() => {
+        if(!user.wallet){
+            connectWallet()
+        }
+    }, [])
+    
 
     const getUserData = async()=>{
         try {
@@ -123,7 +134,7 @@ export const AppProvider = ({children})=>{
                     const mints = data[2];
                     if(mints.length>0){
                         for(let i =0 ; i < mints.length; i++){
-                            currentMint = mints[i];
+                            let currentMint = mints[i];
                             let MINTData = {
                                 slNo: i,
                                 tokenId: hexToNumber(currentMint[0]),
@@ -137,7 +148,7 @@ export const AppProvider = ({children})=>{
                                     , isWhitelisted: whitelist, hasMinted: hasMinted
                                 });                    
                 }
-                
+                console.log(userData)
             } else return null
         } catch (error) {
             console.log(error)
@@ -177,7 +188,7 @@ export const AppProvider = ({children})=>{
 
     return(
         <>
-            <AppContext.Provider value={{nftContractData, mintContractData, user , userData, addNetwork,changeNNetwork,
+            <AppContext.Provider value={{nftContractData, mintContractData, user , userData, addNetwork,changeNetwork,
                 connectContract,convertTime,getChainId , NFTAddress, MinterAddress, getUserData, getUserReferalData, 
                 connectWallet, mintStarted, getCurrentRoundData, getMintData}}>
                 {children}

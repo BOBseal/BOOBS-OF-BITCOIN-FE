@@ -14,7 +14,7 @@ const HomePage = () => {
                             <div className='md:h-[463px] flex md:w-[342px] gap-[2rem] lg:w-[492px]'>
                                 <div className='flex rounded-lg z-20'>
                                     <div className='w-[250px] h-[250px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[10px] ml-[8px] bg-black absolute -z-10'/>
-                                    <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[250px] h-[250px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
+                                    <Image width={1000} height={1000} src={`/images/`} className={`z-10 w-[250px] h-[250px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
                                 </div>
                             {/*<div className='md:w-[50%] md:gap-[1rem] justify-center items-center md:h-full flex flex-col'>
                                 <Image width={130} height={80} src="/images/6.png" className='mr-[180px] -mt-[100px]'/>
@@ -48,7 +48,7 @@ const HomePage = () => {
                     <div className='md:h-[463px] flex md:w-[342px] gap-[2rem] lg:w-[492px]'>
                         <div className='flex rounded-lg z-20'>
                             <div className='w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[10px] ml-[8px] bg-black absolute -z-10'/>
-                            <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
+                            <Image width={1000} height={1000} src={`/images/`} className={`z-10 w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
                         </div>
                         {/*<div className='md:w-[50%] md:gap-[1rem] justify-center items-center md:h-full flex flex-col'>
                             <Image width={130} height={80} src="/images/6.png" className='mr-[180px] -mt-[100px]'/>

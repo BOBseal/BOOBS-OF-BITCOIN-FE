@@ -1,9 +1,12 @@
 'use client'
-import React from 'react'
+import React, {useContext} from 'react'
 import Image from '../../node_modules/next/image'
+import { AppContext } from '@/context/MinterContext'
 
 const Header = () => {
-  return (
+    const {connectWallet, user , userData, getUserData, getCurrentRoundData, getMintData, getUserReferalData} = useContext(AppContext);    
+  
+    return (
     <div className={`bg-[#201D1C] md:gap-[70px] w-full h-[117px] text-white flex justify-center items-center text-lg lg:text-xl border-b-[3px] drop-shadow-lg`}>
         {/* Desktop Nav */}
         
@@ -24,8 +27,8 @@ const Header = () => {
 
             <div className='flex justify-center w-[25%]'>
                 
-                <div className='bg-[#F6B40C] h-[50px] mt-[10px] w-[180px] drop-shadow-lg border-[1.5px] flex justify-center items-center rounded-[12px]'>
-                    Connect Wallet
+                <div onClick={()=>connectWallet()} className='bg-[#F6B40C] h-[50px] mt-[10px] cursor-pointer w-[180px] drop-shadow-lg border-[1.5px] flex justify-center items-center rounded-[12px]'>
+                    {user.wallet ? <>{user.wallet.slice(0,5)}...{user.wallet.slice(37)}</> : "Connect Wallet"}
                 </div>
                 
             </div>
@@ -36,8 +39,8 @@ const Header = () => {
             <div className='flex items-center'>
                 <Image src={`/images/dp.jpg`} width={55} height={55} className={`rounded-full border`}/>
             </div>
-
-            <div>
+            
+            <div onClick={()=> connectWallet()}>
                 <Image src={`/images/menu.svg`} width={55} height={55} className={`rounded-full border`}/>
             </div>
         </div>
