@@ -150,12 +150,24 @@ export const AppProvider = ({children})=>{
                 if(!user.wallet){
                     connectWallet();
                 } else {
-                    let userReferals =[];
+                    let userReferals= [] , promises=[];
                     if(!user.totalReferals){
                         await getUserData();
                     }
                     const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
-                     
+                    const referalEarnings = await contract.getReferalEarnings(user.wallet);
+                    const formatRef = ethers.utils.formatEther(referalEarnings)
+                    if(user.totalReferals && user.totalReferals >0){
+                        for(let i = 0 ; i < totalReferals;i++){
+                            const address = await contract.getUserReferals(user.wallet);
+                            promises.push(address);
+                        }
+
+                        const array = await Promise.all(promises);
+
+                        userReferals = array;
+                    }
+                    setUserData({... userData, referalEarnings: formatRef , referalList: userReferals})
                 }
             }
         } catch (error) {
@@ -166,7 +178,8 @@ export const AppProvider = ({children})=>{
     return(
         <>
             <AppContext.Provider value={{nftContractData, mintContractData, user , userData, addNetwork,changeNNetwork,
-                connectContract,convertTime,getChainId , NFTAddress, MinterAddress}}>
+                connectContract,convertTime,getChainId , NFTAddress, MinterAddress, getUserData, getUserReferalData, 
+                connectWallet, mintStarted, getCurrentRoundData, getMintData}}>
                 {children}
             </AppContext.Provider>
         </>
