@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { AppContext } from '@/context/MinterContext';
 import { ethers } from "../../../../node_modules/ethers/lib/index";
 
-const index = ({ params }) => {
+const Page = ({ params }) => {
   const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint} = useContext(AppContext);
   const [referalAddress , setReferalAddress] = useState("0x0000000000000000000000000000000000000000");
   
@@ -21,4 +21,4 @@ const index = ({ params }) => {
   )
 }
 
-export default index
+export default Page
