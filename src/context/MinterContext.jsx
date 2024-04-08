@@ -186,11 +186,22 @@ export const AppProvider = ({children})=>{
         }
     }
 
+    const mint = async(referal) =>{
+        try {
+            const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
+            const price = await contract.getCurrentPrice();
+            const mint = await contract.mint(referal,{value:price});
+            return mint;        
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return(
         <>
             <AppContext.Provider value={{nftContractData, mintContractData, user , userData, addNetwork,changeNetwork,
                 connectContract,convertTime,getChainId , NFTAddress, MinterAddress, getUserData, getUserReferalData, 
-                connectWallet, mintStarted, getCurrentRoundData, getMintData}}>
+                connectWallet, mintStarted, getCurrentRoundData, getMintData, mint}}>
                 {children}
             </AppContext.Provider>
         </>
