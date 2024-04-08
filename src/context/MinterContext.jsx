@@ -51,13 +51,29 @@ export const AppProvider = ({children})=>{
             
         }
     }
+    const mintStarted = async()=>{
+        try {
+            if(window.ethereum){
+                if(!user.wallet){
+                    connectWallet();
+                } else {
+                    const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
+                    const state = await contract.mintStarted();
+                    setMintContractData({...mintContractData, mintStarted : state})
+                    return state;                    
+                }
+            } else return null       
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const getMintData=async()=>{
         try {
             if(window.ethereum){
                 if(!user.wallet){
                     connectWallet();
                 } else {
-                    const contract = await connectContract(NFTAddress , NFTAbi, user.wallet);
+                    const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const price = await contract.getCurrentPrice();
                     const ineth = ethers.utils.formatEther(price);
                     setMintContractData({...mintContractData, mintPrice :ineth})
@@ -75,10 +91,12 @@ export const AppProvider = ({children})=>{
                 if(!user.wallet){
                     connectWallet();
                 } else {
-                    const contract = await connectContract(NFTAddress , NFTAbi, user.wallet);
+                    const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const round = await contract.getCurrentRound();
+                    const currentRoundMints = await contract.currentRoundMints();
+                    const currRndMints = hexToNumber(currentRoundMints);
                     const inNum = hexToNumber(round);
-                    setMintContractData({...mintContractData, currentRound: inNum})
+                    setMintContractData({...mintContractData, currentRound: inNum, currentRoundMints: currRndMints})
                     return inNum;                    
                 }
             } else return null
@@ -94,8 +112,12 @@ export const AppProvider = ({children})=>{
                     connectWallet();
                 } else {
                     let userMints =[];
-                    const contract = await connectContract(NFTAddress , NFTAbi, user.wallet);
+                    const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const data = await contract.getUserData(user.wallet);
+                    const bonus = await contract.bonusAllocations(user.wallet);
+                    const whitelist = await contract.isWhitelisted(user.wallet);
+                    const hasMinted = await contract.hasMinted(user.wallet);
+                    const formatBonus = ethers.utils.formatEther(bonus);
                     const totalReferals = hexToNumber(data[0])
                     const mintCount = hexToNumber(data[1])
                     const mints = data[2];
@@ -111,12 +133,33 @@ export const AppProvider = ({children})=>{
                             userMints.push(MINTData);
                         }
                     }
-                    setUserData({...userData, totalReferals: totalReferals, totalMints: mintCount, userMints: userMints});                    
+                    setUserData({...userData, totalReferals: totalReferals, totalMints: mintCount, userMints: userMints, bonusAllocations: formatBonus
+                                    , isWhitelisted: whitelist, hasMinted: hasMinted
+                                });                    
                 }
                 
             } else return null
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const getUserReferalData = async()=>{
+        try {
+            if(window.ethereum){
+                if(!user.wallet){
+                    connectWallet();
+                } else {
+                    let userReferals =[];
+                    if(!user.totalReferals){
+                        await getUserData();
+                    }
+                    const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
+                     
+                }
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
