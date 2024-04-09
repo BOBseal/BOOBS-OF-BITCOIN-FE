@@ -4,7 +4,7 @@ export const textData = {
     AboutHeader : 
         "ABOUT BOOBS OF BITCOIN",
     AboutDesc : 
-        "BOOBS OF BITCOIN is a Multi-Chain Social-Fi , NFT-Fi Project on Bitcoin EVM Layer2s. It is a Combined Ecosystem consisting of NFTs , FTs , Social-Fi and Casino into a Self-Sustainable Creator Economy for NSFW Content. Revolving Around 3 Primary things , BTC , NSFW and NFTs BOOBS OF BITCOIN is set to Reimagine the NSFW Creator Market and Fuse HORNY with MONEY."
+        "BOOBS OF BITCOIN is a Multi-Chain Social-Fi , NFT-Fi Project on Bitcoin EVM Layer2s. It is a Combined Ecosystem consisting of NFTs , FTs , Social-Fi and Casino into a Self-Sustainable Creator Economy for NSFW Content. Revolving Around 3 Primary things , BTC , NSFW and NFTs ,BOOBS OF BITCOIN is set to Reimagine the NSFW Creator Market and Fuse HORNY with MONEY."
 
     ,ourGoals: {
         problem:"In Legacy Adult Content Platforms, Piracy is a Big Concern for all Creators. It is Often seen that Content of Creators being Pirated , Clipped, Re-Uploaded on different platforms than the Original Platform where the Creator has Posted the Content by someone other than them for the Purpose of Farming Attention and Traffic of Users. This alone creates a Plethora of Problems for both the Creator and the Platform , primary one being the Creator being denied and exploited of what was Rightfully theirs. The Problem is escalated by an Order of Magnitudes with the Itroduction of AGIs and Generative Art Tools making it even harder to proove the authenticity of the Content , even more so by the Introduction of Deep Fakes using Generative AI.",
