@@ -19,10 +19,9 @@ const Header = () => {
             <div className='flex lg:ml-[300px] justify-center gap-[20px] lg:gap-[60px] mt-[25px] drop-shadow-lg w-[70%]'>
                 <p>Home</p>
                 <p>About</p>
-                <p>Whitepaper</p>
-                <p>Tokenomics</p>
+                <p>Documentation</p>
                 <p>Mint</p>
-                <p>Community</p>
+                <p>Roadmap</p>
             </div>
 
             <div className='flex justify-center w-[25%]'>

@@ -9,15 +9,15 @@ const Showcase = () => {
           </div>
 
           <div className='flex justify-between w-[75%] items-center gap-3'>
-              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center justify-center'>
+              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center drop-shadow-2xl justify-center'>
                 1
               </div>
 
-              <div className='border border-black rounded-2xl h-[282px] w-[282px] lg:h-[410px] lg:w-[410px] items-center justify-center'>
+              <div className='border border-black rounded-2xl h-[282px] w-[282px] lg:h-[410px] lg:w-[410px] items-center justify-center drop-shadow-2xl'>
                 2
               </div>
 
-              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center justify-center'>
+              <div className='hidden md:flex border border-black rounded-2xl h-[222px] w-[222px] lg:h-[328px] lg:w-[328px] items-center justify-center drop-shadow-2xl'>
                 3
               </div>
           </div>
