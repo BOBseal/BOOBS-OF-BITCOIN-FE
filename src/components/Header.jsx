@@ -2,6 +2,7 @@
 import React, {useContext} from 'react'
 import Image from '../../node_modules/next/image'
 import { AppContext } from '@/context/MinterContext'
+import Link from '../../node_modules/next/link'
 
 const Header = () => {
     const {connectWallet, user , userData, getUserData, getCurrentRoundData, getMintData, getUserReferalData} = useContext(AppContext);    
@@ -17,8 +18,12 @@ const Header = () => {
         <div className='hidden  md:flex justify-between w-[80%] gap-[60px] lg:-ml-[18rem]'>
             
             <div className='flex lg:ml-[300px] justify-center gap-[20px] lg:gap-[60px] mt-[25px] drop-shadow-lg w-[70%]'>
-                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19]'>Website</p>
-                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19]'>Mint</p>
+                <Link href={'/'}>
+                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19] cursor-pointer'>Home</p>
+                </Link>
+                <Link href={'./mint/0'}>
+                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19] cursor-pointer'>Mint</p>
+                </Link>
             </div>
 
             <div className='flex justify-center w-[25%]'>
