@@ -21,7 +21,9 @@ import {
     MinterAddress
 } from "../constants/constants.jsx"
 
-
+const errorcodes ={
+    noFunds:"INSUFFICIENT_FUNDS"
+}
 export const AppContext = React.createContext();
 
 export const AppProvider = ({children})=>{
@@ -108,12 +110,6 @@ export const AppProvider = ({children})=>{
             console.log(error)
         }
     }
-
-    useEffect(() => {
-        if(!user.wallet){
-            connectWallet()
-        }
-    }, [])
     
 
     const getUserData = async()=>{

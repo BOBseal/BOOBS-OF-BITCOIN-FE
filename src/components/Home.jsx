@@ -4,7 +4,7 @@ import {textData} from "../constants/BOOBconfig.jsx"
 
 const HomePage = () => {
   return (
-    <div className='flex flex-col w-screen h-full gap-[4rem] pt-[4rem] pb-[4rem]  md:h-full bg-gradient-to-t justify-start items-center from-[#F6960C] border-[1px] to-[#DD4423]'>
+    <div className='flex flex-col w-screen h-full gap-[2rem] pt-[4rem] pb-[4rem]  md:h-full bg-gradient-to-t justify-start items-center from-[#F6960C] border-[1px] to-[#DD4423]'>
         
         <div className='w-[95%] md:w-[95%] lg:w-[75%] h-[80%] flex justify-center items-center'> 
             <div className='flex flex-col md:flex-row justify-between w-full h-full items-center'>
@@ -36,19 +36,21 @@ const HomePage = () => {
                 <div className=' w-[50%] h-full hidden md:flex justify-center items-center lg:mt-[0]'>
                     <div className='md:h-[463px] flex md:w-[342px] gap-[2rem] lg:w-[492px]'>
                         <div className='flex rounded-lg z-20'>
-                            <div className='w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[10px] ml-[8px] bg-black absolute -z-10'/>
-                            <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
+                            <div className='w-[200px] h-[200px] md:h-[300px] md:w-[300px] lg:w-[450px] lg:h-[450px] mt-[110px] ml-[8px] bg-black absolute -z-10'/>
+                            <Image width={1000} height={1000} src={`/images/dp.jpg`} className={`z-10 w-[200px] h-[200px] md:h-[300px] md:mt-[100px] md:w-[300px] lg:w-[450px] lg:h-[450px]`}/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            <button>MINT NOW</button>
+        <div className='md:w-[95%] flex-col gap-[2rem] lg:w-[75%] lg:pb-[3rem] md:h-[15rem] pt-[2rem] md:pt-0 h-[15rem] w-[80%] drop-shadow-lg flex items-center md:items-start justify-start'>
+            <h5 className='font-semibold text-[1.5rem] md:text-[2.5rem]'>GENESIS MINT IS LIVE !!!</h5>
+            <h5 className='font-semibold w-[12rem]' >MINT PRICE : 0.00069 BTC</h5>
+            <button className='border w-[12rem] md:w-[15rem] h-[4rem] rounded-2xl bg-red-600'>GO TO MINT PAGE</button>
         </div>
 
-        <div className=' w-[80%] h-full'>
+        <div className=' w-[80%] md:w-[95%] lg:w-[75%] h-full'>
             <div className='flex drop-shadow-2xl flex-col gap-[1rem]'>
                 <h3 className='font-semibold text-[1.1rem] drop-shadow-2xl'>BENIFITS OVERVIEW :</h3>
                 <div className='flex flex-col gap-[0.5rem] drop-shadow-2xl'>
