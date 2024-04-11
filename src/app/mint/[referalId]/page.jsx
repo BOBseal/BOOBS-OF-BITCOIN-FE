@@ -34,12 +34,12 @@ const Page = ({ params }) => {
       <div className='w-[90%] absolute z-0 md:w-[70%] lg:w-[40%] flex bg-black h-[70%] mt-[15px] ml-[15px] drop-shadow-lg rounded-xl'/>
       <div className='w-[90%] md:w-[70%] lg:w-[40%] z-10 flex flex-col bg-orange-500 h-[70%] drop-shadow-2xl rounded-xl border-[2px] justify-start items-center'>
         <div className='pt-[2rem] flex-col w-[90%] h-[65%] flex items-center gap-[1rem] justify-center'>
-          <div className='w-full lg:w-[50%] md:w-[65%] h-[90%] flex items-center justify-center drop-shadow-lg'>
+          <div className='w-full lg:w-[60%] md:w-[65%] h-[90%] flex items-center justify-center drop-shadow-lg'>
             <Image src='/images/dp.jpg' height={1000} width={1000} alt={"BOOBS OF BITCOIN"} className='object-cover w-full h-full border rounded-2xl'/>
           </div>
         </div>
         
-        <div className='md:w-[60%] lg:w-[45%] w-[90%] h-[35%] gap-[2px]'>       
+        <div className='md:w-[60%] lg:w-[55%] w-[90%] h-[35%] gap-[2px]'>       
           <div className='h-[50%] text-sm md:text-base font-semibold w-full grid grid-cols-2 justify-center items-center'>
               <div className='flex h-full justify-center flex-col gap-[0.5rem] items-start'>
                 <p>Round: 1</p>
