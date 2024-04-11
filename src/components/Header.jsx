@@ -17,11 +17,8 @@ const Header = () => {
         <div className='hidden  md:flex justify-between w-[80%] gap-[60px] lg:-ml-[18rem]'>
             
             <div className='flex lg:ml-[300px] justify-center gap-[20px] lg:gap-[60px] mt-[25px] drop-shadow-lg w-[70%]'>
-                <p>Home</p>
-                <p>About</p>
-                <p>Documentation</p>
-                <p>Mint</p>
-                <p>Roadmap</p>
+                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19]'>Website</p>
+                <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19]'>Mint</p>
             </div>
 
             <div className='flex justify-center w-[25%]'>

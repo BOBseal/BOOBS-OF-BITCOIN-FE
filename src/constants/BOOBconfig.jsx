@@ -1,6 +1,6 @@
 export const textData = {
     HomeTitle:"BOOBS OF BITCOIN",
-    HomeDescription:"BOOBS OF BITCOIN is a 10k Collection of Captivating BOOB NFTs , A Platform for Data Protection and Preservation for the often Scrutinised and Enabling NSFW Finance through Bitcoin , EVM and NFTs." ,
+    HomeDescription:"BOOBS OF BITCOIN is a 10k Collection of Captivating BOOB NFTs , A Platform for Data Protection and Preservation for the often Scrutinised and Enabling NSFW Finance through Bitcoin , EVM and NFTs. Each NFT Has Guaranteed Token Allocation for the Ecosystem Token $BOOB and 69% of Amount Raised Through Genesis Mint is resereved for Minimum Liquidity for the Token. Mint One NOW and Enjoy 6.9% Royalties from sales of your minted ids forever." ,
     AboutHeader : 
         "ABOUT BOOBS OF BITCOIN",
     AboutDesc : 
