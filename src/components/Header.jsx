@@ -25,7 +25,7 @@ const Header = () => {
                 <p className='flex w-[120px] border items-center justify-center bg-[#1c1a19] cursor-pointer'>Mint</p>
                 </Link>
                 <Link href={'/'}>
-                <p onClick={()=> alert("coming soon")} className='flex w-[120px] border items-center justify-center bg-[#1c1a19] cursor-pointer'>Rewards</p>
+                <p onClick={()=> alert("coming soon")} className='flex w-[120px] border items-center justify-center bg-[#1c1a19] cursor-pointer'>Milk Pots</p>
                 </Link>
             </div>
 
