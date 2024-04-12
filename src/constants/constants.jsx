@@ -1,9 +1,9 @@
 import NFT from "./BOBNFT.json";
 import Minter from "./MINTER.json"
 
-export const MinterAddress = "0x15fAfCa0646cd2cDdD6D0aaC9fAfd68aef07198d"
+export const MinterAddress = "0x683A47486fAA1f70C7317FbFBB902a455003aA5b"
 
-export const NFTAddress = "0x982E3688c3fAEE49CfC407013Ac98037c03e4115"
+export const NFTAddress = "0xb5422091f868625041E80b4a1ADfa3d03d4e29A3"
 
 export const MinterAbi = Minter.abi;
 
