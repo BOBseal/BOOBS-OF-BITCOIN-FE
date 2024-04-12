@@ -49,7 +49,7 @@ const Page = ({ params }) => {
                   <p>Your Mints: 1</p>
                 </div>
                 <div className='flex h-full justify-center flex-col gap-[0.5rem] items-start'>
-                  <p>Current Cost: 0.00069 BTC</p>
+                  <p>Current Cost: Free</p>
                   <p>Is Whitelisted: No</p>
                   <p>Mints Left: 999</p>
                   <p>Your Mints Left : 29</p>

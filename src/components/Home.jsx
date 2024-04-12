@@ -45,9 +45,10 @@ const HomePage = () => {
             </div>
         </div>
 
-        <div className='md:w-[95%] flex-col gap-[2rem] lg:w-[75%] lg:pb-[3rem] md:h-[15rem] pt-[2rem] md:pt-0 h-[15rem] w-[80%] drop-shadow-lg flex items-center md:items-start justify-start'>
+        <div className='md:w-[95%] flex-col gap-[2rem] lg:w-[75%] lg:pb-[3rem] pt-[2rem] md:pt-0 h-[17rem] w-[80%] drop-shadow-lg flex items-center md:items-start justify-start'>
             <h5 className='font-semibold text-[1.5rem] md:text-[2.5rem]'>GENESIS MINT IS LIVE !!!</h5>
-            <h5 className='font-semibold w-[12rem]' >MINT PRICE : 0.00069 BTC</h5>
+            <h5 className='font-semibold w-[14rem]' >CURRENT MINT PRICE : 0 BTC</h5>
+            <h5 className='font-semibold w-[14rem]' >CURRENT MINT ROUND : 1st </h5>
             <Link href={"./mint/0"}>
             <button className='border w-[12rem] md:w-[15rem] h-[4rem] rounded-2xl bg-red-600'>GO TO MINT PAGE</button>
             </Link>
