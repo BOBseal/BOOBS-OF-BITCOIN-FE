@@ -40,27 +40,29 @@ const Page = ({ params }) => {
             </div>
           </div>
           
-          <div className='md:w-[75%] lg:w-[75%] w-[90%] h-[47%] gap-[2px] flex justify-center flex-col items-center'>       
-            <div className='h-[50%] text-sm md:text-lg font-semibold w-full grid grid-cols-2 justify-center items-center'>
-                <div className='flex h-full justify-center flex-col gap-[0.5rem] items-start'>
-                  <p>Round: 1</p>
-                  <p>Next Cost: 0.00015 BTC</p>
-                  <p>Mints/Round: 1000</p>
-                  <p>Your Mints: 1</p>
+          <div className='md:w-[75%] lg:w-[65%] w-[90%] h-[50%] gap-[1rem] flex justify-center flex-col items-center'>       
+            <div className='h-[60%] text-sm md:text-lg font-semibold w-full grid grid-cols-2 gap-[0.2rem] justify-center items-center'>
+                <div className=' grid-rows-5'>
+                  <p>Ongoing Round: 1</p>
+                  <p>Next Round Cost: 0.00015 BTC</p>
+                  <p>Mints Per Round: 1000</p>
+                  <p>User Total Mints : 1</p>
+                  <p>Raffle Pool : 0.022 BTC</p>
                 </div>
-                <div className='flex h-full justify-center flex-col gap-[0.5rem] items-start'>
-                  <p>Current Cost: Free</p>
-                  <p>Is Whitelisted: No</p>
-                  <p>Mints Left: 999</p>
-                  <p>Your Mints Left : 29</p>
+                <div className='grid-rows-5'>
+                  <p>Current Cost : Free</p>
+                  <p>Current Round Mints : 0</p>
+                  <p>Current Round Mints Left: 999</p>
+                  <p>User Mints Left : 29</p>
+                  <p>Referer Address : 0.03...0987</p>
                 </div>
             </div>
 
-            <div className='h-[50%] flex flex-col justify-center items-center gap-[3rem] mt-[2rem] w-full'>
+            <div className='h-[30%] flex flex-col justify-center items-center gap-[1rem] w-full'>
                 <button onClick={()=> handlerMint()} className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>
                   {user.wallet? "MINT" : "Connect Wallet"}
                 </button>
-                <p>Your Referal : https://boobsofbitcoin.nft/mint/address</p>
+                <button className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>View Referal Details</button>
             </div>
           </div>
         </div>
