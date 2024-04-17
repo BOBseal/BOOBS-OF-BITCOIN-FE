@@ -3,10 +3,12 @@ import React, {useContext} from 'react'
 import Image from '../../node_modules/next/image'
 import { AppContext } from '@/context/MinterContext'
 import Link from '../../node_modules/next/link'
+import { ReactiveContext } from '@/context/ReactiveContext'
 
 const Header = () => {
     const {connectWallet, user , userData, getUserData, getCurrentRoundData, getMintData, getUserReferalData} = useContext(AppContext);    
-  
+    const {userDetails , toggleMobileMenu} = useContext(ReactiveContext);
+    
     return (
     <div className={`bg-[#201D1C] md:gap-[70px] w-full h-[117px] text-white flex justify-center items-center text-lg lg:text-xl border-b-[3px] drop-shadow-lg`}>
         {/* Desktop Nav */}
@@ -44,7 +46,7 @@ const Header = () => {
                 <Image src={`/images/dp.jpg`} width={55} height={55} className={`rounded-full border`}/>
             </div>
             
-            <div onClick={()=> connectWallet()}>
+            <div onClick={()=> toggleMobileMenu()}>
                 <Image src={`/images/menu.svg`} width={55} height={55} className={`rounded-full border`}/>
             </div>
         </div>

@@ -4,11 +4,14 @@ import { useRouter } from 'next/router'
 import { AppContext } from '@/context/MinterContext';
 import { ethers } from "../../../../node_modules/ethers/lib/index";
 import Image from '../../../../node_modules/next/image'
+import Menu from "../../../components/Menu"
+import { ReactiveContext } from '@/context/ReactiveContext';
 
 const Page = ({ params }) => {
   const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint} = useContext(AppContext);
   const [referalAddress , setReferalAddress] = useState("0x0000000000000000000000000000000000000000");
-  
+  const {userDetails , toggleReferalMenu} = useContext(ReactiveContext)
+
   useEffect(() => {
     if(params.referalId.length > 10){
       setReferalAddress(params.referalId);
@@ -41,18 +44,18 @@ const Page = ({ params }) => {
           </div>
           
           <div className='md:w-[75%] lg:w-[65%] w-[90%] h-[50%] gap-[1rem] flex justify-center flex-col items-center'>       
-            <div className='h-[60%] text-sm md:text-lg font-semibold w-full grid grid-cols-2 gap-[0.2rem] justify-center items-center'>
-                <div className=' grid-rows-5'>
+            <div className='h-[60%] md:text-lg font-semibold w-[90%] md:w-full pb-[1.5rem] md:pb-0 flex flex-col md:grid md:grid-cols-2 gap-[0.3rem] justify-center items-center'>
+                <div className=' md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
                   <p>Ongoing Round: 1</p>
-                  <p>Next Round Cost: 0.00015 BTC</p>
+                  <p>Next Cost: 0.00015 BTC</p>
                   <p>Mints Per Round: 1000</p>
-                  <p>User Total Mints : 1</p>
                   <p>Raffle Pool : 0.022 BTC</p>
+                  <p>Balances: 0.001 BTC</p>
                 </div>
-                <div className='grid-rows-5'>
+                <div className='md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
                   <p>Current Cost : Free</p>
-                  <p>Current Round Mints : 0</p>
-                  <p>Current Round Mints Left: 999</p>
+                  <p>Round Mints : 0</p>
+                  <p>Round Mints Left: 999</p>
                   <p>User Mints Left : 29</p>
                   <p>Referer Address : 0.03...0987</p>
                 </div>
@@ -62,11 +65,13 @@ const Page = ({ params }) => {
                 <button onClick={()=> handlerMint()} className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>
                   {user.wallet? "MINT" : "Connect Wallet"}
                 </button>
-                <button className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>View Referal Details</button>
+                <button 
+                onClick={()=>toggleReferalMenu()}
+                className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>View Referal Details</button>
             </div>
           </div>
         </div>
-      
+      <Menu className="w-full h-full flex"/>
      </div>
   )
 }
