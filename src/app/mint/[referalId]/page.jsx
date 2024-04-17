@@ -5,6 +5,7 @@ import { AppContext } from '@/context/MinterContext';
 import { ethers } from "../../../../node_modules/ethers/lib/index";
 import Image from '../../../../node_modules/next/image'
 import Menu from "../../../components/Menu"
+import ReferalPage from "../../../components/ReferalPage"
 import { ReactiveContext } from '@/context/ReactiveContext';
 
 const Page = ({ params }) => {
@@ -71,6 +72,7 @@ const Page = ({ params }) => {
             </div>
           </div>
         </div>
+        <ReferalPage className="w-full h-full flex"/>
       <Menu className="w-full h-full flex"/>
      </div>
   )
