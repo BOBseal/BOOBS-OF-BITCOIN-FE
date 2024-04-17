@@ -1,12 +1,14 @@
-
-import React from 'react'
+"use client"
+import { ReactiveContext } from '@/context/ReactiveContext'
+import React ,{useContext} from 'react'
 import Image from '../../node_modules/next/image'
 import Link from '../../node_modules/next/link'
 import {textData} from "../constants/BOOBconfig.jsx"
 
 const HomePage = () => {
+    const {userDetails} = useContext(ReactiveContext)
   return (
-    <div className='flex flex-col w-screen h-full gap-[2rem] pt-[4rem] pb-[4rem]  md:h-full bg-gradient-to-t justify-start items-center from-[#F6960C] border-[1px] to-[#DD4423]'>
+    <div className={`flex flex-col ${ userDetails.mobileMenuActive ? "blur-md" :""} w-screen h-full gap-[2rem] pt-[4rem] pb-[4rem]  md:h-full bg-gradient-to-t justify-start items-center from-[#F6960C] border-[1px] to-[#DD4423]`}>
         
         <div className='w-[95%] md:w-[95%] lg:w-[75%] h-[80%] flex justify-center items-center'> 
             <div className='flex flex-col md:flex-row justify-between w-full h-full items-center'>

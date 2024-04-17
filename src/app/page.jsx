@@ -13,7 +13,7 @@ export default function Home() {
 
   return(
     <div className="w-full h-full text-white flex flex-col">
-      <HomePage className="h-full z-0 flex"/>    
+      <HomePage className={`h-full z-0 flex`}/>    
       <Menu/>
     </div>
   )
