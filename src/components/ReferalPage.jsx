@@ -5,14 +5,13 @@ import { ReactiveContext } from "@/context/ReactiveContext.jsx";
 const ReferalPage = () => {
     const {userDetails , toggleReferalMenu} = useContext(ReactiveContext)
 return (
-    <div>
-        {userDetails.referalMenuActive? <div className="border h-[35rem] md:h-[60rem] absolute z-50 md:top-0 left-0 w-full bg-black">
-          <div className="flex flex-col items-center justify-between p-[3rem] h-full w-full">
-              <button className='md:hidden' onClick={()=> toggleReferalMenu()}>CLose</button>
+    <div className=''>
+        {userDetails.referalMenuActive? <div className="border h-[30rem] md:h-screen absolute z-50 top-[34rem] md:top-[117px] right-0 w-full md:w-[30rem] lg:w-[45rem] bg-black">
+          <div className="flex items-center flex-col md:flex-row justify-between p-[3rem] h-full w-full">
+              <button className='md:flex' onClick={()=> toggleReferalMenu()}>CLose</button>
 
               <p>Referals</p>
               
-              <button className='hidden md:flex' onClick={()=> toggleReferalMenu()}>CLose</button>
           </div>
       </div> :""}
     </div>

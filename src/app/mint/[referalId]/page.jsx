@@ -61,7 +61,7 @@ const Page = ({ params }) => {
     <div className ={`flex items-center gap-[1rem] justify-center flex-col text-white h-screen bg-gradient-to-t from-[#111037] to-[#8C1D52]`}>
      
         <div className='w-[90%] absolute z-0 md:w-[70%] lg:w-[40%] flex bg-black h-[90%] mt-[15px] ml-[15px] drop-shadow-lg rounded-xl'/>
-        <div className={`w-[90%] md:w-[70%] ${ userDetails.mobileMenuActive ? "blur-md" :""} lg:w-[40%] z-10 flex flex-col bg-orange-500 h-[90%] drop-shadow-2xl rounded-xl border-[2px] gap-2 justify-start items-center`}>
+        <div className={`w-[90%] md:w-[70%] ${ userDetails.mobileMenuActive || userDetails.referalMenuActive? "blur-md" :""} lg:w-[40%] z-10 flex flex-col bg-orange-500 h-[90%] drop-shadow-2xl rounded-xl border-[2px] gap-2 justify-start items-center`}>
           <div className='pt-[2rem] flex-col w-[90%] h-[50%] flex items-center gap-[1rem] justify-center'>
             <div className='w-full lg:w-[60%] md:w-[65%] h-[90%] flex items-center justify-center drop-shadow-lg'>
               <Image src='/images/dp.jpg' height={1000} width={1000} alt={"BOOBS OF BITCOIN"} className='border rounded-2xl'/>
