@@ -9,7 +9,7 @@ import ReferalPage from "../../../components/ReferalPage"
 import { ReactiveContext } from '@/context/ReactiveContext';
 
 const Page = ({ params }) => {
-  const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint, mintStarted, getMintData, getCurrentRoundData} = useContext(AppContext);
+  const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint, mintStarted, getMintData, getCurrentRoundData , isContextLoading} = useContext(AppContext);
   const [referalAddress , setReferalAddress] = useState("0x0000000000000000000000000000000000000000");
   const {userDetails , toggleReferalMenu} = useContext(ReactiveContext)
 
@@ -70,24 +70,22 @@ const Page = ({ params }) => {
           <div className='md:w-[75%] lg:w-[65%] w-[90%] h-[50%] gap-[1rem] flex justify-center flex-col items-center'>       
             <div className='h-[60%] md:text-lg font-semibold w-[90%] md:w-full pb-[1.5rem] md:pb-0 flex flex-col md:grid md:grid-cols-2 gap-[0.3rem] justify-center items-center'>
                 <div className=' md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
-                  <p>Current Round: {mintContractData.currentRound}</p>
-                  <p>Next Cost: {mintContractData.nextPrice ? <>{
-                    mintContractData.nextPrice
-                  } BTC</>:"Connect Wallet"}</p>
+                  <p>Current Round: {isContextLoading ? "Loading..." :<>{mintContractData.currentRound}</>}</p>
+                  <p>Next Cost: {isContextLoading ? "Loading..." :<>{mintContractData.nextPrice ? <>{mintContractData.nextPrice} BTC</>:"Connect Wallet"}</>}</p>
                   <p>Mints Per Round: 1000</p>
                 </div>
                 <div className='md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
-                  <p>Current Cost : {mintContractData.mintPrice? <>{
-                    mintContractData.mintPrice != 0 ? <>{mintContractData.mintPrice} BTC</> :"FREE"
-                  }</>:<>ConnectWallet</>}</p>
-                  <p>Current Round Mints : {mintContractData.currentRoundMints ? <>{mintContractData.currentRoundMints}</>:"Connect Wallet"}</p>
-                  <p>User Total Mints : {userData.totalMints ?<>{userData.totalMints}</>:"0 Mints"}</p>
+                  <p>Current Cost : {isContextLoading ? "Loading..." :<>{mintContractData.mintPrice? <>{mintContractData.mintPrice != 0 ? <>{mintContractData.mintPrice} BTC</> :"FREE"}</>:<>ConnectWallet</>}</>}</p>
+                  <p>Current Round Mints : {isContextLoading ? "Loading..." :<>{mintContractData.currentRoundMints ? <>{mintContractData.currentRoundMints}</>:"Connect Wallet"}</>}</p>
+                  <p>User Total Mints : {isContextLoading ? "Loading..." :<>{userData.totalMints ?<>{userData.totalMints}</>:"0 Mints"}</>}</p>
                 </div>
             </div>
 
             <div className='h-[30%] flex flex-col justify-center items-center gap-[1rem] w-full'>
                 <button onClick={()=> handlerMint()} className='border w-[12rem] md:w-[15rem] h-[3.2rem] rounded-2xl bg-red-600 font-bold text-[1.2rem]'>
-                  {user.wallet? "MINT" : "Connect Wallet"}
+                  {user.wallet? 
+                  <>{isContextLoading ? "Loading..." : "MINT"}</> 
+                  : "Connect Wallet"}
                 </button>
                 <button 
                 onClick={()=>toggleReferalMenu()}
