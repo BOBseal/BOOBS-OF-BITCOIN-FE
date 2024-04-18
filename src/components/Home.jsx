@@ -1,4 +1,5 @@
 "use client"
+import { AppContext } from '@/context/MinterContext'
 import { ReactiveContext } from '@/context/ReactiveContext'
 import React ,{useContext} from 'react'
 import Image from '../../node_modules/next/image'
@@ -7,6 +8,8 @@ import {textData} from "../constants/BOOBconfig.jsx"
 
 const HomePage = () => {
     const {userDetails} = useContext(ReactiveContext)
+    const {mintContractData , user} = useContext(AppContext);
+
   return (
     <div className={`flex flex-col ${ userDetails.mobileMenuActive ? "blur-md" :""} w-screen h-full gap-[2rem] pt-[4rem] pb-[4rem]  md:h-full bg-gradient-to-t justify-start items-center from-[#F6960C] border-[1px] to-[#DD4423]`}>
         
@@ -48,10 +51,10 @@ const HomePage = () => {
             </div>
         </div>
 
-        <div className='md:w-[95%] flex-col gap-[2rem] lg:w-[75%] lg:pb-[3rem] pt-[2rem] md:pt-0 h-[17rem] w-[80%] drop-shadow-lg flex items-center md:items-start justify-start'>
+        <div className='md:w-[95%] flex-col gap-[1.5rem] lg:w-[75%] lg:pb-[3rem] pt-[2rem] md:pt-0 h-[17rem] w-[80%] drop-shadow-lg flex items-start justify-start'>
             <h5 className='font-semibold text-[1.5rem] md:text-[2.5rem]'>GENESIS MINT IS LIVE !!!</h5>
-            <h5 className='font-semibold w-[14rem]' >CURRENT MINT PRICE : 0 BTC</h5>
-            <h5 className='font-semibold w-[14rem]' >CURRENT MINT ROUND : 1st </h5>
+            <h5 className='font-semibold w-[14rem]' >CURRENT PRICE : {mintContractData.mintPrice ? <>{mintContractData.mintPrice}</>:"Connect Wallet"} BTC</h5>
+            <h5 className='font-semibold w-[14rem]' >CURRENT ROUND : {mintContractData.currentRound ? <>{mintContractData.currentRound}</>:"Connect Wallet"} </h5>
             <Link href={"./mint/0"}>
             <button className='border w-[12rem] md:w-[15rem] h-[4rem] rounded-2xl bg-red-600'>GO TO MINT PAGE</button>
             </Link>

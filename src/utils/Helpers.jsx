@@ -62,6 +62,20 @@ export const getChainId = async()=>{
     }
 }
 
+export const getEthBalance=async(account)=>{
+    try {
+        if(window.ethereum){
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const balance = await provider.getBalance(account);
+            const balanceInEth = ethers.utils.formatEther(balance);
+//            console.log(balanceInEth);
+            return balanceInEth
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export function convertTime(seconds)
 
 {

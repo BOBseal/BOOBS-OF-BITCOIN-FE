@@ -9,7 +9,7 @@ import ReferalPage from "../../../components/ReferalPage"
 import { ReactiveContext } from '@/context/ReactiveContext';
 
 const Page = ({ params }) => {
-  const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint} = useContext(AppContext);
+  const {user , connectWallet, userData ,mintContractData, getUserData, getUserReferalData, mint, mintStarted, getMintData, getCurrentRoundData} = useContext(AppContext);
   const [referalAddress , setReferalAddress] = useState("0x0000000000000000000000000000000000000000");
   const {userDetails , toggleReferalMenu} = useContext(ReactiveContext)
 
@@ -17,8 +17,32 @@ const Page = ({ params }) => {
     if(params.referalId.length > 10){
       setReferalAddress(params.referalId);
     }
-  }, [params.referalId])
+    if(!user.wallet){
+      connectWallet();
+    } 
+    if(user.wallet){
+      fetchHandler();
+    }
+  }, [params.referalId, user.wallet, mintContractData.currentRound, userData.totalMints])
 
+
+  const fetchHandler = async() =>{
+    try {
+      if(!userData.totalMints){
+        const c =await getUserData();
+        console.log(c);
+       };
+       if(!mintContractData.mintPrice){
+        await mintStarted();
+        await getMintData();
+      }
+      if(!mintContractData.currentRound){
+        await getCurrentRoundData();
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const handlerMint =async()=>{
     try{
       if(!user.wallet){
@@ -47,18 +71,18 @@ const Page = ({ params }) => {
           <div className='md:w-[75%] lg:w-[65%] w-[90%] h-[50%] gap-[1rem] flex justify-center flex-col items-center'>       
             <div className='h-[60%] md:text-lg font-semibold w-[90%] md:w-full pb-[1.5rem] md:pb-0 flex flex-col md:grid md:grid-cols-2 gap-[0.3rem] justify-center items-center'>
                 <div className=' md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
-                  <p>Ongoing Round: 1</p>
-                  <p>Next Cost: 0.00015 BTC</p>
+                  <p>Current Round: {mintContractData.currentRound}</p>
+                  <p>Next Cost: {mintContractData.nextPrice ? <>{
+                    mintContractData.nextPrice
+                  } BTC</>:"Connect Wallet"}</p>
                   <p>Mints Per Round: 1000</p>
-                  <p>Raffle Pool : 0.022 BTC</p>
-                  <p>Balances: 0.001 BTC</p>
                 </div>
                 <div className='md:grid-rows-5 flex flex-col gap-[0.3rem] w-full'>
-                  <p>Current Cost : Free</p>
-                  <p>Round Mints : 0</p>
-                  <p>Round Mints Left: 999</p>
-                  <p>User Mints Left : 29</p>
-                  <p>Referer Address : 0.03...0987</p>
+                  <p>Current Cost : {mintContractData.mintPrice? <>{
+                    mintContractData.mintPrice != 0 ? <>{mintContractData.mintPrice} BTC</> :"FREE"
+                  }</>:<>ConnectWallet</>}</p>
+                  <p>Current Round Mints : {mintContractData.currentRoundMints ? <>{mintContractData.currentRoundMints}</>:"Connect Wallet"}</p>
+                  <p>User Total Mints : {userData.totalMints ?<>{userData.totalMints}</>:"0 Mints"}</p>
                 </div>
             </div>
 

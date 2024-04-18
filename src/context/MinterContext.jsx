@@ -7,7 +7,8 @@ import {
     connectContract,
     convertTime,
     connectMetamask,
-    getChainId
+    getChainId,
+    getEthBalance
 } from "../utils/Helpers.jsx"
 
 import { sepolia } from "../utils/networkConfigs.jsx";
@@ -37,6 +38,7 @@ export const AppProvider = ({children})=>{
         ]
     });
     const [userData , setUserData] = useState({});
+    const [ ERROR , setError] = useState();
 
     const connectWallet =async()=>{
         try {
@@ -47,11 +49,14 @@ export const AppProvider = ({children})=>{
                 if(chainId != sepolia[0].chainId){
                     changeNetwork(sepolia[0].chainId);
                 }
-                setUser({wallet: wallet , array: array});
+                const xxx = getEthBalance(wallet);
+                setUser({wallet: wallet , array: array, nativeBalance: xxx});
                 return wallet;
             }
         } catch (error) {
-            
+            console.log(error);
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
     const mintStarted = async()=>{
@@ -63,11 +68,13 @@ export const AppProvider = ({children})=>{
                     const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const state = await contract.mintStarted();
                     setMintContractData({...mintContractData, mintStarted : state})
-                    return state;                    
+                    return {state:state, done:true};                    
                 }
             } else return null       
         } catch (error) {
             console.log(error)
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
     const getMintData=async()=>{
@@ -78,14 +85,17 @@ export const AppProvider = ({children})=>{
                 } else {
                     const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const price = await contract.getCurrentPrice();
+                    const nextP = await contract.getNextPrice();
                     const ineth = ethers.utils.formatEther(price);
-                    setMintContractData({...mintContractData, mintPrice :ineth})
-                    console.log(ineth)
+                    const nInEth = ethers.utils.formatEther(nextP);
+                    setMintContractData({...mintContractData, mintPrice :ineth, nextPrice: nInEth})
                     return ineth;                    
                 }
             } else return null       
         } catch (error) {
             console.log(error)
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
 
@@ -101,13 +111,15 @@ export const AppProvider = ({children})=>{
                     const currRndMints = hexToNumber(currentRoundMints);
                     const inNum = hexToNumber(round);
                     setMintContractData({...mintContractData, currentRound: inNum, currentRoundMints: currRndMints})
-                    
-                    console.log(mintContractData)                 
+                    //console.log(inNum)
+                    //console.log(mintContractData)                 
                     return inNum;   
                 }
             } else return null
         } catch (error) {
             console.log(error)
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
     
@@ -117,7 +129,8 @@ export const AppProvider = ({children})=>{
             if(window.ethereum){
                 if(!user.wallet){
                     connectWallet();
-                } else {
+                } if(user.wallet) {
+                    
                     let userMints =[];
                     const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
                     const data = await contract.getUserData(user.wallet);
@@ -127,6 +140,7 @@ export const AppProvider = ({children})=>{
                     const formatBonus = ethers.utils.formatEther(bonus);
                     const totalReferals = hexToNumber(data[0])
                     const mintCount = hexToNumber(data[1])
+                    //console.log(mintCount)
                     const mints = data[2];
                     if(mints.length>0){
                         for(let i =0 ; i < mints.length; i++){
@@ -142,12 +156,17 @@ export const AppProvider = ({children})=>{
                     }
                     setUserData({...userData, totalReferals: totalReferals, totalMints: mintCount, userMints: userMints, bonusAllocations: formatBonus
                                     , isWhitelisted: whitelist, hasMinted: hasMinted
-                                });                    
+                                });
+                    return({...userData, totalReferals: totalReferals, totalMints: mintCount, userMints: userMints, bonusAllocations: formatBonus
+                        , isWhitelisted: whitelist, hasMinted: hasMinted
+                    });                    
                 }
                 console.log(userData)
             } else return null
         } catch (error) {
             console.log(error)
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
 
@@ -179,17 +198,29 @@ export const AppProvider = ({children})=>{
             }
         } catch (error) {
             console.log(error);
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
 
     const mint = async(referal) =>{
         try {
+            const chainId = await getChainId();
+            if(chainId != sepolia[0].chainId){
+                await changeNetwork(sepolia[0].chainId);
+            }
             const contract = await connectContract(MinterAddress , MinterAbi, user.wallet);
             const price = await contract.getCurrentPrice();
+            const pp = ethers.utils.formatEther(price);
+            if(Number(user.nativeBalance) < Number(pp)){
+                alert("Balances Not enough for Fee")
+            }
             const mint = await contract.mint(referal,{value:price});
             return mint;        
         } catch (error) {
             console.log(error);
+            setError({...ERROR, error: error , code:error.code})
+            return error;
         }
     }
 
@@ -197,7 +228,7 @@ export const AppProvider = ({children})=>{
         <>
             <AppContext.Provider value={{nftContractData, mintContractData, user , userData, addNetwork,changeNetwork,
                 connectContract,convertTime,getChainId , NFTAddress, MinterAddress, getUserData, getUserReferalData, 
-                connectWallet, mintStarted, getCurrentRoundData, getMintData, mint}}>
+                connectWallet, mintStarted, getCurrentRoundData, getMintData, mint, ERROR}}>
                 {children}
             </AppContext.Provider>
         </>
